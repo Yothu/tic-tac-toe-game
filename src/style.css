@@ -1,0 +1,33 @@
+.tic-container {
+  width: 90vw !important;
+  height: 90vw !important;
+}
+
+.content {
+  min-height: 100vh;
+}
+
+.h-33 {
+  height: 33.3333% !important;
+}
+
+.tic-box {
+  background-color: #ecf0f1;
+}
+
+.tic-box-content {
+  background-size: contain !important;
+  height: 100%;
+}
+
+.tic-box-cross {
+  background: url('./tic-cross.png');
+}
+
+.tic-box-circle {
+  background: url('./tic-circle.png');
+}
+
+.tic-container > .row {
+  --bs-gutter-x: 0rem !important;
+}
