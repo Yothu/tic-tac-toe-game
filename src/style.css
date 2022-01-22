@@ -21,11 +21,11 @@
 }
 
 .tic-box-cross {
-  background: url('./tic-cross.png');
+  filter: brightness(0.1) invert(.2) sepia(1000%) hue-rotate(100deg) saturate(2000%);
 }
 
 .tic-box-circle {
-  background: url('./tic-circle.png');
+  filter: brightness(40%) invert(20%) sepia(100%) hue-rotate(-50deg) saturate(600%);
 }
 
 .tic-container > .row {
