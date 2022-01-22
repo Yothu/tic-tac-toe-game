@@ -1,17 +1,15 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
-# Project Name
+# TIC TAC TOE - Dhaivy
 
 > Description the project.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- JavaSript
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://livedemo.com)
 
