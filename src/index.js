@@ -8,7 +8,7 @@ global.turn = true;
 
 class ticInspector{
   constructor() {
-    this.storage = [];
+    this.storage = [null, null, null, null, null, null, null, null, null];
   }
 
   setCross (pos) {
@@ -51,8 +51,47 @@ const getPosition = (boxes, clickedBox) => {
   }
 }
 
-const checkVictory = (ticPos) => {
-  console.log('bruh');
+const checkVictory = (ticTacToe) => {
+  const tC = ticTacToe.storage;
+  const vicPos = [
+    [0, 4, 8], // Diagonal NW to SE
+    [2, 4, 6], // Diagonal NE to SW
+    [0, 1, 2], // Upper horizontal
+    [3, 4, 5], // Middle horizontal
+    [6, 7, 8], // Lower horizontal
+    [0, 3, 6], // Left vertical
+    [1, 4, 7], // Center vertical
+    [2, 5, 8]  // Right vertical
+  ];
+
+  let simbol = 'circle';
+  let cicle = 1;
+
+  do {
+    for (let i = 0; i < vicPos.length; i += 1) {
+      if (tC[vicPos[i][0]] === simbol && tC[vicPos[i][1]] === simbol && tC[vicPos[i][2]] === simbol) {
+        return true;
+      }
+    }
+    simbol = 'cross';
+    cicle += 1;
+  } while (cicle < 3);
+
+  return false;
+}
+
+const ticTacToeIsFull = (ticTacToe) => {
+  let nullCounter = 0;
+  for (let i = 0; i < ticTacToe.storage.length; i += 1) {
+    if (ticTacToe.storage[i] === null) {
+      nullCounter += 1;
+    }
+  }
+  if (nullCounter === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 const saveTicTacToeProgressLocally = (progress) => {
@@ -75,7 +114,14 @@ boxes.forEach(box => {
       }
       saveTicTacToeProgressLocally(ticTacToe);
       addCirlceOrCross(box);
-      console.log('storage:', ticTacToe.storage);
+
+      if (checkVictory(ticTacToe)) {
+        console.log('VICTORY')
+      }
+
+      if (ticTacToeIsFull(ticTacToe)) {
+        console.log('FULL');
+      }
     }
   })
 });
